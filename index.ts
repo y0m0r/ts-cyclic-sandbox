@@ -1,14 +1,20 @@
-import * as http from "http";
+import  express from "express"
+
+const app: express.Express = express()
+
+app.all('/', (req: express.Request, res: express.Response) => {
+  console.log("Just got a request!")
+  res.send('Express Yo Yo Yo Yo!')
+})
+app.listen(process.env.PORT || 3000)
 
 
-// httpサーバーを設定する
-const server = http.createServer(
-    (request, response) => {
-      // サーバーにリクエストがあった時に実行される関数
 
-      response.end("Yo Yo Yo Yo!");
-    }
-  );
-  // サーバーを起動してリクエストを待ち受け状態にする
-  server.listen(process.env.PORT || 3000);
+//import * as http from "http";
+//const server = http.createServer(
+//    (request, response) => {
+//      response.end("Yo Yo Yo Yo!");
+//    }
+//  );
+//  server.listen(process.env.PORT || 3000);
 
